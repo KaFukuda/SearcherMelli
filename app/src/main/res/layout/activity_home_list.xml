@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:contextClickable="false"
     tools:context=".view.HomeListActivity">
 
     <RelativeLayout
@@ -19,28 +20,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="3dp"
         android:maxWidth="24dp"
         android:maxHeight="24dp"
         android:src="@drawable/menu"
-        android:elevation="3dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toStartOf="@+id/input_field"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/input_field"
-        android:layout_width="263dp"
-        android:layout_height="wrap_content"
+        android:layout_width="292dp"
+        android:layout_height="38dp"
+        android:background="@drawable/border"
         android:hint="Buscar no Mercado Livre"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
@@ -71,13 +72,18 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
+        android:id="@+id/recycler"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:clickable="true"
         android:focusable="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:itemCount="10"
+        tools:listitem="@layout/recycler_item_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
