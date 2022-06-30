@@ -2,17 +2,31 @@ package com.meli.searcher.service.api
 
 import com.google.gson.JsonObject
 import com.meli.searcher.model.DiscoveryCategory
+import com.meli.searcher.model.HighlightsObject
+import com.meli.searcher.model.ItemList
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface Endpoint {
 
-    @GET("https://api.mercadolibre.com/sites/MLB/domain_discovery/search?limit=5&q=Carros")
+    @GET("sites/MLB/domain_discovery/search?limit=1")
     fun getByEntryData(
-        //@Query("q") q: String,
-    ) : Call<MutableList<DiscoveryCategory>>
+        @Query("q") q: String,
+    ) : List<DiscoveryCategory>
 
+    @GET("highlights/MLB/category/{id}")
+    fun getHighlights(
+        @Path("id") id: String,
+        @Header("Authorization") token: String = ""
+    ) : HighlightsObject
 
+    @GET("items")
+    fun getItems(
+        @Query("ids") ids: String,
+    ) : List<ItemList>
 
     companion object {
 

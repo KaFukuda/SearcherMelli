@@ -1,18 +1,17 @@
-package com.meli.searcher.viewmodel
+package com.meli.searcher.view.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.meli.searcher.databinding.RecyclerItemListBinding
-import com.meli.searcher.model.DiscoveryCategory
-import com.meli.searcher.model.ItemList
+import com.meli.searcher.model.ItemDetails
 
-class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
-    private val item: MutableList<DiscoveryCategory> = mutableListOf()
+class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
+    private val item: MutableList<ItemDetails> = mutableListOf()
 
     class ViewHolder(private val view : RecyclerItemListBinding) : RecyclerView.ViewHolder(view.root) {
-        fun bind (item : DiscoveryCategory) {
-            view.nameRecyclerItem.text = item.category_name
+        fun bind (item: ItemDetails) {
+            view.nameRecyclerItem.text = item.title
             /*view.priceRecyclerItem.text = item.price.toString()
             view.description1RecyclerItem.text = item.desc1
             view.description2RecyclerItem.text = item.desc2*/
@@ -32,9 +31,9 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
        return item.size
     }
 
-    fun setItems(item: MutableList<DiscoveryCategory>) {
+    fun setItems(listFinal: List<ItemDetails>) {
         item.clear()
-        item.addAll(item)
+        item.addAll(listFinal)
         notifyDataSetChanged()
     }
 

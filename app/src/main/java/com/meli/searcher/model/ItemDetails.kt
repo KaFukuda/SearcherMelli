@@ -5,6 +5,7 @@ import java.math.BigDecimal
 
 data class ItemDetails(
     val id : String, //"MLB1152846407"
+    val type : String, //"MLB1152846407"
     val site_id : String, //MLB
     val title: String, //"Ração P/carpas Sticks Premium Mix 6x1 -6kg"
     val category_id: String, //"MLB1094"

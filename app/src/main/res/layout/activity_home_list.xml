@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:contextClickable="false"
-    tools:context=".view.HomeListActivity">
+    tools:context=".view.home.HomeListActivity">
 
     <RelativeLayout
         android:id="@+id/view"
@@ -42,7 +42,6 @@
         android:layout_width="292dp"
         android:layout_height="38dp"
         android:background="@drawable/border"
-        android:hint="Buscar no Mercado Livre"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"

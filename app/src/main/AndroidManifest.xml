@@ -17,10 +17,10 @@
         android:theme="@style/Theme.Searcher"
         tools:targetApi="31">
         <activity
-            android:name=".view.DetailsActivity" />
+            android:name=".view.Products.DetailsActivity" />
 
         <activity
-            android:name=".view.HomeListActivity"
+            android:name=".view.home.HomeListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

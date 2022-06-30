@@ -1,4 +1,4 @@
-package com.meli.searcher.view
+package com.meli.searcher.view.Products
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
