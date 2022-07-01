@@ -13,18 +13,18 @@ import retrofit2.http.Query
 interface Endpoint {
 
     @GET("sites/MLB/domain_discovery/search?limit=1")
-    fun getByEntryData(
+    suspend fun getByEntryData(
         @Query("q") q: String,
     ) : List<DiscoveryCategory>
 
     @GET("highlights/MLB/category/{id}")
-    fun getHighlights(
+    suspend fun getHighlights(
         @Path("id") id: String,
         @Header("Authorization") token: String = ""
     ) : HighlightsObject
 
     @GET("items")
-    fun getItems(
+    suspend fun getItems(
         @Query("ids") ids: String,
     ) : List<ItemList>
 

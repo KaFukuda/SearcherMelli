@@ -5,18 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.meli.searcher.databinding.RecyclerItemListBinding
 import com.meli.searcher.model.ItemDetails
+import com.squareup.picasso.Picasso
+import kotlin.math.roundToInt
 
-class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
+class HomeListAdapter (
+    val itemListener : (itemDetails: ItemDetails) -> Unit
+        ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
     private val item: MutableList<ItemDetails> = mutableListOf()
-
-    class ViewHolder(private val view : RecyclerItemListBinding) : RecyclerView.ViewHolder(view.root) {
-        fun bind (item: ItemDetails) {
-            view.nameRecyclerItem.text = item.title
-            /*view.priceRecyclerItem.text = item.price.toString()
-            view.description1RecyclerItem.text = item.desc1
-            view.description2RecyclerItem.text = item.desc2*/
-        }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = RecyclerItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -37,4 +32,24 @@ class HomeListAdapter : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    inner class ViewHolder(private val view : RecyclerItemListBinding) : RecyclerView.ViewHolder(view.root) {
+        fun bind (item: ItemDetails) {
+            view.nameRecyclerItem.text = item.title
+
+            Picasso.get().load(item.secure_thumbnail).into(view.imageRecyclerItem)
+
+            val priceBr = item.price.toString()
+            view.priceRecyclerItem.text = "R$ $priceBr"
+
+            view.description1RecyclerItem.text = "Disponível para venda: ${item.available_quantity }"
+
+            var payment = (item.price.toDouble() / 12).roundToInt()
+
+            view.description2RecyclerItem.text = "em 12x R$ $payment"
+
+            view.root.setOnClickListener{
+                itemListener(item)
+            }
+        }
+    }
 }

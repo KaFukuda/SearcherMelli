@@ -1,20 +1,19 @@
 package com.meli.searcher.service.api
-
 import android.util.Log
 import com.meli.searcher.model.ItemDetails
 import com.meli.searcher.util.NetworkUtils
-
 
 class ItemsHomeService {
 
     private val apiService = NetworkUtils.createService()
     private val token = NetworkUtils.getToken()
 
-    fun searchByWord(word: String): List<ItemDetails>? {
+    suspend fun searchByWord(word: String): List<ItemDetails>?  {
         var itemList = emptyList<ItemDetails>()
+
         try {
             val preditorWord = apiService.getByEntryData(word).first()
-            val highlightObj = apiService.getHighlights(preditorWord.category_id)
+            val highlightObj = apiService.getHighlights(preditorWord.category_id, token)
             val ids = highlightObj.content.filter {
                 it.type == "ITEM"
             }.map {
@@ -26,7 +25,8 @@ class ItemsHomeService {
             }
         } catch (e: Exception) {
             Log.e("ItemsHomeService", "searchByWord : ${e.toString()}")
-        }
+            }
         return itemList
     }
+
 }

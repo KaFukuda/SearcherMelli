@@ -47,9 +47,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="150dp"
-                android:paddingTop="4dp"
+                android:paddingTop="2dp"
                 android:paddingEnd="10dp"
-                android:paddingBottom="4dp"
+                android:paddingBottom="2dp"
                 android:textAlignment="textStart"
                 android:textSize="11sp"
                 tools:text="2019 - 37.000 Km" />
@@ -59,21 +59,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="150dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:textAlignment="viewStart"
                 android:textSize="11sp"
                 tools:text="Bs.As. G.B.A. Norte" />
 
+            <ImageView
+                android:id="@+id/favIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="144dp"
+                app:srcCompat="@drawable/fav" />
+
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/image_recycler_item"
-            android:layout_width="131dp"
-            android:layout_height="131dp"
-            android:padding="3dp"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@drawable/car_test" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/image_recycler_item"
+                android:layout_width="131dp"
+                android:layout_height="131dp"
+                android:padding="5dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/grey_200"
+                app:srcCompat="@drawable/car_test" />
+        </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
 
