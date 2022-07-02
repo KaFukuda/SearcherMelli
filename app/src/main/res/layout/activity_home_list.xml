@@ -85,4 +85,18 @@
         tools:itemCount="10"
         tools:listitem="@layout/recycler_item_list" />
 
+    <TextView
+        android:id="@+id/msgEmpty"
+        android:layout_width="165dp"
+        android:layout_height="17dp"
+        android:text="Não há registros de busca"
+        android:textColor="@color/blue_100"
+        android:textColorLink="@color/blue_200"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

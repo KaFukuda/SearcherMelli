@@ -36,7 +36,7 @@ class NetworkUtils {
 
         fun getToken(): String{
             //atualiza qdo vencer
-            return "Bearer APP_USR-2859167208567892-070107-1b5930fae730c8871ed382a1d226ae81-250404804"
+            return "Bearer APP_USR-2859167208567892-070215-68cbc8683c586c6d1dab46e575088278-250404804"
         }
     }
 

@@ -28,16 +28,4 @@ interface Endpoint {
         @Query("ids") ids: String,
     ) : List<ItemList>
 
-    companion object {
-
-        //1 - chamada - traz os 10 primeiros por categoria
-        const val API_DISCOVERY_PREDICTOR =  "https://api.mercadolibre.com/sites/MLB/domain_discovery/search?limit=1&"
-
-        //2 - chamada - traz os 20 mais vendidos se a categoria existir
-        const val API_HIGHLIGHTS = "https://api.mercadolibre.com/highlights/MLB/category"
-
-        //3 - chamada - traz somente Itens separados por virgula e seus detalhes
-        const val API_MULTIGETS_DETAILS = "https://api.mercadolibre.com/items?"
-
-    }
 }
