@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.meli.searcher.R
 import com.meli.searcher.databinding.RecyclerItemListBinding
 import com.meli.searcher.model.ItemDetails
 import com.squareup.picasso.Picasso
@@ -14,7 +15,8 @@ import okhttp3.MediaType.Companion.toMediaType
 import kotlin.math.roundToInt
 
 class HomeListAdapter(
-    val itemListener: (itemDetails: ItemDetails) -> Unit
+    val itemListener: (itemDetails: ItemDetails) -> Unit,
+    val favListener: (id : String) -> Unit
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
     private val item: MutableList<ItemDetails> = mutableListOf()
 
@@ -41,29 +43,33 @@ class HomeListAdapter(
 
     inner class ViewHolder(private val view: RecyclerItemListBinding) :
         RecyclerView.ViewHolder(view.root) {
+
         fun bind(item: ItemDetails) {
             view.nameRecyclerItem.text = item.title
             Picasso.get().load(item.secure_thumbnail).into(view.imageRecyclerItem)
+
             val priceBr = item.price.toString()
+
             view.priceRecyclerItem.text = "R$ $priceBr"
             view.description1RecyclerItem.text = "Disponível para venda: ${item.available_quantity}"
+
             val payment: String = (item.price?.toDouble()?.div(12))?.roundToInt().toString()
             view.description2RecyclerItem.text = "em 12x R$ $payment"
 
-            fun isNational() {
-                if (item.site_id == "MLB") {
-                    "Produto nacional"
-                } else {
-                    "Produto internacional"
-                }
-            }
-            isNational()
+            Picasso.get().load(
+                if(item.is_favorite!!) R.drawable.heart_blue else R.drawable.heart
+            ).into(view.favIcon)
+
+            val description = item.plain_text.toString()
 
             view.cardView.setOnClickListener {
-                Log.d("SENDDATA", "enviei dado: ${item.site_id}")
+                Log.d("SENDDATA", "enviei dado: $description")
                 itemListener(item)
             }
 
+            view.favIcon.setOnClickListener {
+                favListener(item.id!!)
+            }
 
         }
     }

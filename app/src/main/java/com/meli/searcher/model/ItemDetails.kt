@@ -17,6 +17,8 @@ class ItemDetails (
     val url : String?, //"http://http2.mlstatic.com/D_897035-MLB50174953428_062022-O.jpg" image 426x500"
     val currency_id : String?,
     val available_quantity: String?,
-    val pictures: @RawValue List<Pictures>
+    var plain_text: String?,
+    val pictures: @RawValue List<Pictures>,
+    var is_favorite: Boolean?
 
     ): Parcelable

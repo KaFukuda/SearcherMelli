@@ -1,237 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.products.DetailsActivity">
+    android:layout_height="match_parent">
 
-
-    <RelativeLayout
-        android:id="@+id/viewBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/yellow_700">
+        android:layout_height="match_parent"
+        tools:context=".view.products.DetailsActivity">
 
-        <ImageView
-            android:id="@+id/iconHeart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/iconCart"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="0dp"
-            android:layout_toStartOf="@+id/iconSearch"
-            android:elevation="3dp"
-            android:maxWidth="24dp"
-            android:maxHeight="24dp"
-            android:src="@drawable/heart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/iconSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/iconCart"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="-1dp"
-            android:layout_toStartOf="@+id/iconCart"
-            android:elevation="3dp"
-            android:maxWidth="24dp"
-            android:maxHeight="24dp"
-            android:src="@drawable/search_black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/iconHeart"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iconHeart" />
-
-        <ImageView
-            android:id="@+id/iconCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="23dp"
-            android:maxWidth="24dp"
-            android:maxHeight="24dp"
-            android:src="@drawable/cart"
-            app:layout_constraintBottom_toBottomOf="@+id/iconSearch"
+        <RelativeLayout
+            android:id="@+id/viewBar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/yellow_700"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iconSearch"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iconHeart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iconCart"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toStartOf="@+id/iconSearch"
+                android:elevation="3dp"
+                android:maxWidth="24dp"
+                android:maxHeight="24dp"
+                android:src="@drawable/heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iconCart"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="-1dp"
+                android:layout_toStartOf="@+id/iconCart"
+                android:elevation="3dp"
+                android:maxWidth="24dp"
+                android:maxHeight="24dp"
+                android:src="@drawable/search_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iconHeart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iconHeart" />
+
+            <ImageView
+                android:id="@+id/iconCart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="23dp"
+                android:maxWidth="24dp"
+                android:maxHeight="24dp"
+                android:src="@drawable/cart"
+                app:layout_constraintBottom_toBottomOf="@+id/iconSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iconSearch"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="27dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/iconHeart"
+                android:layout_alignTop="@+id/iconHeart"
+                android:layout_marginStart="-275dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="83dp"
+                app:srcCompat="@drawable/local" />
+
+            <TextView
+                android:id="@+id/adress"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/imageView"
+                android:layout_alignTop="@+id/iconHeart"
+                android:layout_alignBottom="@+id/imageView"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="-39dp"
+                android:layout_marginBottom="-5dp"
+                android:layout_toStartOf="@+id/iconCart"
+                android:fontFamily="@font/montserrat_light"
+                android:text="@string/adress"
+                android:textColor="@color/black_text" />
+
+            <TextView
+                android:id="@+id/titleDetails"
+                android:layout_width="89dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/detailsMenu"
+                android:layout_alignTop="@+id/iconHeart"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="-7dp"
+                android:layout_marginEnd="114dp"
+                android:layout_toStartOf="@+id/iconHeart"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="2dp"
+                android:text="Produto"
+                android:textColor="@color/black_text"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/detailsMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iconHeart"
+                android:layout_alignBottom="@+id/iconCart"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="236dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toStartOf="@+id/iconHeart"
+                app:srcCompat="@drawable/menu" />
+
+
+        </RelativeLayout>
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="27dp"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/iconHeart"
-            android:layout_alignTop="@+id/iconHeart"
-            android:layout_marginStart="-275dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="83dp"
-            app:srcCompat="@drawable/local" />
+            android:id="@+id/detailsImage"
+            android:layout_width="378dp"
+            android:layout_height="305dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailsTitle"
+            app:srcCompat="@drawable/big_car_test" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="380dp"
+            android:layout_height="479dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailsPrice">
+
+            <TextView
+                android:id="@+id/descriptionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:paddingStart="20dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="8dp"
+                android:text="Descrição"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/detailsItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:paddingStart="20dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:text="TextView"
+                android:textColor="@color/grey_500"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/detailsMoreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_light"
+                android:paddingStart="20dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
+                android:text="TextView"
+                android:textColor="@color/grey_500"
+                android:textSize="16sp" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/adress"
-            android:layout_width="348dp"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/imageView"
-            android:layout_alignTop="@+id/iconHeart"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="-39dp"
-            android:layout_marginBottom="-5dp"
-            android:layout_toStartOf="@+id/iconCart"
-            android:fontFamily="@font/montserrat_light"
-            android:text="@string/adress"
-            android:textColor="@color/black_text" />
-
-        <TextView
-            android:id="@+id/titleDetails"
-            android:layout_width="89dp"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/detailsMenu"
-            android:layout_alignTop="@+id/iconHeart"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="-7dp"
-            android:layout_marginEnd="114dp"
-            android:layout_toStartOf="@+id/iconHeart"
+            android:id="@+id/detailsPrice"
+            android:layout_width="299dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="24dp"
             android:fontFamily="@font/montserrat_medium"
-            android:padding="2dp"
-            android:text="Produto"
+            android:paddingStart="20dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="4dp"
             android:textColor="@color/black_text"
-            android:textSize="20sp" />
+            android:textSize="36sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/detailsImage"
+            tools:text="20000" />
 
-        <ImageView
-            android:id="@+id/detailsMenu"
+        <TextView
+            android:id="@+id/detailsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingStart="8dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="16dp"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            android:textColor="@color/black_text"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewBar" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/iconHeart"
-            android:layout_alignBottom="@+id/iconCart"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="236dp"
-            android:layout_marginBottom="0dp"
-            android:layout_toStartOf="@+id/iconHeart"
-            app:srcCompat="@drawable/menu" />
-
-
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/detailsImage"
-        android:layout_width="378dp"
-        android:layout_height="305dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsTitle"
-        app:srcCompat="@drawable/big_car_test" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="380dp"
-        android:layout_height="479dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsPrice">
-
-        <TextView
-            android:id="@+id/descriptionLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_light"
-            android:paddingStart="20dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="8dp"
-            android:text="Descrição"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/detailsItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_light"
-            android:paddingStart="20dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="4dp"
-            android:text="TextView"
-            android:textColor="@color/grey_500"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/detailsMoreInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_light"
-            android:paddingStart="20dp"
-            android:paddingTop="4dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="4dp"
-            android:text="TextView"
-            android:textColor="@color/grey_500"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/btn_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:backgroundTint="@color/blue_100"
-            android:capitalize="none"
-            android:elevation="3dp"
-            android:fontFamily="@font/montserrat_light"
-            android:text="Adicionar a favoritos"
-            android:textAllCaps="false"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/detailsPrice"
-        android:layout_width="387dp"
-        android:layout_height="55dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:paddingStart="20dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="4dp"
-        android:paddingBottom="4dp"
-        android:textColor="@color/black_text"
-        android:textSize="36sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsImage" />
-
-    <TextView
-        android:id="@+id/detailsTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:paddingStart="8dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="16dp"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textColor="@color/black_text"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewBar" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#00FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/detailsPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailsImage"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/fav" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

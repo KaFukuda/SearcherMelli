@@ -1,5 +1,6 @@
 package com.meli.searcher.service.api
 
+import com.meli.searcher.model.Details
 import com.meli.searcher.model.DiscoveryCategory
 import com.meli.searcher.model.HighlightsObject
 import com.meli.searcher.model.ItemList
@@ -10,7 +11,7 @@ import retrofit2.http.Query
 
 interface Endpoint {
 
-    @GET("sites/MLB/domain_discovery/search?limit=1")
+    @GET("sites/MLB/domain_discovery/search?limit=2")
     suspend fun getByEntryData(
         @Query("q") q: String,
     ) : List<DiscoveryCategory>
@@ -25,5 +26,10 @@ interface Endpoint {
     suspend fun getItems(
         @Query("ids") ids: String,
     ) : List<ItemList>
+
+    @GET("items/{item_id}/description")
+    suspend fun getDetails(
+        @Path("item_id") itemId: String
+    ) : Details
 
 }

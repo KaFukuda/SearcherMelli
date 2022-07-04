@@ -35,6 +35,7 @@ class DetailsActivity() : AppCompatActivity() {
         binding.detailsTitle.text = itemDetails.title
         binding.detailsMoreInfo.text = itemDetails.available_quantity
         binding.detailsPrice.text = itemDetails.price
+        binding.detailsItem.text = itemDetails.plain_text
 
         if(itemDetails.pictures != null)
             Picasso.get().load(itemDetails.pictures[0].secure_url).into(binding.detailsImage)

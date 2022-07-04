@@ -18,7 +18,7 @@ import kotlin.math.roundToInt
 class HomeListActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityHomeListBinding.inflate(layoutInflater) }
-    private val homeListViewModel by lazy { HomeListViewModel() }
+    private val homeListViewModel by lazy { HomeListViewModel(applicationContext) }
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +27,12 @@ class HomeListActivity : AppCompatActivity() {
         supportActionBar?.hide() //remove a barra de ajuda
 
         val rv: RecyclerView = binding.recycler
-        val adapter = HomeListAdapter { openItem(it) }
+
+        val adapter = HomeListAdapter (
+            { openItem(it) },
+            { manageFavs(it) }
+        )
+
         rv.adapter = adapter
 
 
@@ -66,6 +71,10 @@ class HomeListActivity : AppCompatActivity() {
     }
     private fun toastMsg(msg: String?) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    private fun manageFavs(id: String){
+        homeListViewModel.editFav(id)
     }
 
 }
