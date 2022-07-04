@@ -15,9 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Searcher"
-        tools:targetApi="31">
+        tools:targetApi="28">
         <activity
-            android:name=".view.Products.DetailsActivity" />
+            android:name=".view.products.DetailsActivity" />
 
         <activity
             android:name=".view.home.HomeListActivity"

@@ -1,5 +1,6 @@
 package com.meli.searcher.util
 
+import com.meli.searcher.env.TOKEN
 import com.meli.searcher.service.api.Endpoint
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -29,14 +30,8 @@ class NetworkUtils {
             return getRetrofitInstance().create(Endpoint::class.java)
         }
 
-        //generics
-        fun <S> createGService(data: Class<S>): S {
-            return getRetrofitInstance().create(data)
-        }
-
         fun getToken(): String{
-            //atualiza qdo vencer
-            return "Bearer APP_USR-2859167208567892-070215-68cbc8683c586c6d1dab46e575088278-250404804"
+            return TOKEN
         }
     }
 

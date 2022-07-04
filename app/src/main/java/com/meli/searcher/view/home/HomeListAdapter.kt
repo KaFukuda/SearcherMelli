@@ -1,5 +1,6 @@
 package com.meli.searcher.view.home
 
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.meli.searcher.databinding.RecyclerItemListBinding
 import com.meli.searcher.model.ItemDetails
 import com.squareup.picasso.Picasso
+import okhttp3.MediaType.Companion.toMediaType
 import kotlin.math.roundToInt
 
 class HomeListAdapter(
@@ -45,32 +47,32 @@ class HomeListAdapter(
             val priceBr = item.price.toString()
             view.priceRecyclerItem.text = "R$ $priceBr"
             view.description1RecyclerItem.text = "Disponível para venda: ${item.available_quantity}"
-            val payment = (item.price.toDouble() / 12).roundToInt()
+            val payment: String = (item.price?.toDouble()?.div(12))?.roundToInt().toString()
             view.description2RecyclerItem.text = "em 12x R$ $payment"
 
             fun isNational() {
-                var country = if (item.site_id == "MLB") {
+                if (item.site_id == "MLB") {
                     "Produto nacional"
                 } else {
                     "Produto internacional"
                 }
             }
             isNational()
-            //view.<alterar>.text = country
-
-            /*val bundle = Bundle()
-            bundle.putString("title", item.title)
-            bundle.putString("secure_thumbnail", item.secure_thumbnail)
-            bundle.putString("price", item.price.toString())
-            bundle.putString("available_quantity", item.available_quantity)
-            bundle.putString("site_id", isNational().toString())*/
-
 
             view.cardView.setOnClickListener {
+                Log.d("SENDDATA", "enviei dado: ${item.site_id}")
                 itemListener(item)
-                Log.d("SENDDATA", "enviei dado")
-
             }
+
+
         }
     }
 }
+
+/*
+val bundle = Bundle()
+bundle.putString("secure_thumbnail", item.secure_thumbnail)
+bundle.putString("title", item.title)
+bundle.putString("price", item.price.toString())
+bundle.putString("available_quantity", item.available_quantity)
+bundle.putString("site_id", isNational().toString())*/

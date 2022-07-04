@@ -9,7 +9,7 @@ class ItemsHomeService {
     private val token = NetworkUtils.getToken()
 
     suspend fun searchByWord(word: String): List<ItemDetails>?  {
-        var itemList = emptyList<ItemDetails>()
+        var itemList: List<ItemDetails> = emptyList<ItemDetails>()
 
         try {
             val preditorWord = apiService.getByEntryData(word).first()
@@ -24,9 +24,13 @@ class ItemsHomeService {
                 //retorna lista de obj do tipo itemList
             }
         } catch (e: Exception) {
-            Log.e("ItemsHomeService", "searchByWord : ${e.toString()}")
+            Log.e("ItemsHomeService", "searchByWord : $e")
             }
         return itemList
     }
+
+    //suspend fun getFavorites(){
+
+    //}
 
 }

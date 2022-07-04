@@ -4,21 +4,16 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.app.NotificationCompat.getExtras
+import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
-import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityHomeListBinding
-import com.meli.searcher.model.DiscoveryCategory
 import com.meli.searcher.model.ItemDetails
-import com.meli.searcher.view.Products.DetailsActivity
-
+import com.meli.searcher.view.products.DetailsActivity
+import kotlin.math.roundToInt
 
 class HomeListActivity : AppCompatActivity() {
 
@@ -51,39 +46,33 @@ class HomeListActivity : AppCompatActivity() {
                     return false
                 }
 
-                override fun onQueryTextChange(query: String?): Boolean {
-                    homeListViewModel.searchByWord("")
-                    binding.msgEmpty.isVisible = true
-                    return true
+                override fun onQueryTextChange(query: String): Boolean {
+                    return false
                 }
             })
         }
         setupSearchView()
-
     }
 
-    override fun onStart() {
-        super.onStart()
-        //val intent = Intent(this, DiscoveryCategory::class.java)
-
-    }
 
     //M. ao clicar no item aponta pro valor setado
     private fun openItem(itemDetails: ItemDetails) {
+
         val intent = Intent(this, DetailsActivity::class.java)
-        intent.putExtra("title", itemDetails.title)
-        intent.putExtra("price", itemDetails.price)
-        intent.putExtra( "available_quantity", itemDetails.available_quantity)
-        intent.putExtra("secure_thumbnail",itemDetails.secure_thumbnail)
+        //val bundle = bundleOf("itemDetails" to itemDetails)
+        //intent.putExtras(bundle)
+        intent.putExtra("itemDetails" , itemDetails )
         startActivity(intent)
     }
-
     private fun toastMsg(msg: String?) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
-
-
 }
+
+/*fun hideKeyboard(view: View) {
+    val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(view.windowToken, 0)
+}*/
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Products.DetailsActivity">
+    tools:context=".view.products.DetailsActivity">
 
 
     <RelativeLayout
@@ -164,6 +164,17 @@
             android:padding="8dp"
             android:text="TextView" />
 
+        <Button
+            android:id="@+id/btn_fav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@color/blue_200"
+            android:backgroundTint="@color/blue_200"
+            android:elevation="3dp"
+            android:text="Adicionar a favoritos" />
+
     </LinearLayout>
 
     <TextView
@@ -171,9 +182,9 @@
         android:layout_width="387dp"
         android:layout_height="55dp"
         android:padding="4dp"
-        android:text="$ 2.200.200"
-        android:textColor="@color/black"
-        android:textSize="36dp"
+        android:textColor="@color/black_text"
+        android:textSize="36sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsImage" />
@@ -189,6 +200,7 @@
         android:paddingBottom="16dp"
         android:text="TextView"
         android:textAlignment="textStart"
+        android:textColor="@color/black_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewBar" />
 
