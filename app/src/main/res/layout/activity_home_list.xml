@@ -64,9 +64,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:fontFamily="@font/montserrat_light"
         android:text="+2.000 resultados"
         android:textColor="@color/grey_300"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -87,8 +88,9 @@
 
     <TextView
         android:id="@+id/msgEmpty"
-        android:layout_width="165dp"
-        android:layout_height="17dp"
+        android:layout_width="245dp"
+        android:layout_height="21dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="Não há registros de busca"
         android:textColor="@color/blue_100"
         android:textColorLink="@color/blue_200"
@@ -96,7 +98,9 @@
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.518" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

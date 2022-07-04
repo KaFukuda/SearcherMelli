@@ -89,6 +89,7 @@
             android:layout_marginEnd="-39dp"
             android:layout_marginBottom="-5dp"
             android:layout_toStartOf="@+id/iconCart"
+            android:fontFamily="@font/montserrat_light"
             android:text="@string/adress"
             android:textColor="@color/black_text" />
 
@@ -102,6 +103,7 @@
             android:layout_marginTop="-7dp"
             android:layout_marginEnd="114dp"
             android:layout_toStartOf="@+id/iconHeart"
+            android:fontFamily="@font/montserrat_medium"
             android:padding="2dp"
             android:text="Produto"
             android:textColor="@color/black_text"
@@ -147,22 +149,40 @@
             android:id="@+id/descriptionLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Descricao" />
+            android:fontFamily="@font/montserrat_light"
+            android:paddingStart="20dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="8dp"
+            android:text="Descrição"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/detailsItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="TextView" />
+            android:fontFamily="@font/montserrat_light"
+            android:paddingStart="20dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="4dp"
+            android:text="TextView"
+            android:textColor="@color/grey_500"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/detailsMoreInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="TextView" />
+            android:fontFamily="@font/montserrat_light"
+            android:paddingStart="20dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="4dp"
+            android:text="TextView"
+            android:textColor="@color/grey_500"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btn_fav"
@@ -170,10 +190,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@color/blue_200"
-            android:backgroundTint="@color/blue_200"
+            android:backgroundTint="@color/blue_100"
+            android:capitalize="none"
             android:elevation="3dp"
-            android:text="Adicionar a favoritos" />
+            android:fontFamily="@font/montserrat_light"
+            android:text="Adicionar a favoritos"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -181,7 +204,11 @@
         android:id="@+id/detailsPrice"
         android:layout_width="387dp"
         android:layout_height="55dp"
-        android:padding="4dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingStart="20dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="4dp"
         android:textColor="@color/black_text"
         android:textSize="36sp"
         android:visibility="visible"
@@ -194,6 +221,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_medium"
         android:paddingStart="8dp"
         android:paddingTop="16dp"
         android:paddingEnd="8dp"
@@ -201,6 +229,7 @@
         android:text="TextView"
         android:textAlignment="textStart"
         android:textColor="@color/black_text"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewBar" />
 
