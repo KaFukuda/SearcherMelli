@@ -2,21 +2,20 @@ package com.meli.searcher.util
 
 import android.content.Context
 
-class Favorites( val context : Context) {
+class Favorites( context : Context) {
 
     private val idShared = "IDS_ITEM_FAV"
 
-    //declarando
+    //declare
     private val sharedPreferences = context.getSharedPreferences(idShared , Context.MODE_PRIVATE)
 
-
-    //acessando a lista
+    //access favorite's list
     fun getListFavs(): MutableSet<String>{
         return sharedPreferences.getStringSet(idShared, mutableSetOf())?.toMutableSet()!!
     }
 
-    //adiciona e remove favoritos
-    fun manageFavs(id: String) {
+    //add and remove favorite items
+    fun favoriteManager(id: String) {
         val list = getListFavs()
         val result = list.add(id)
 
@@ -25,6 +24,4 @@ class Favorites( val context : Context) {
 
         sharedPreferences.edit().putStringSet(idShared, list).apply()
     }
-
-
 }

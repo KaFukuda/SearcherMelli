@@ -1,4 +1,4 @@
-package com.meli.searcher.view.home
+package com.meli.searcher.ui.home
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -10,8 +10,7 @@ import com.meli.searcher.service.api.ItemsHomeService
 import com.meli.searcher.util.Favorites
 import kotlinx.coroutines.launch
 
-class HomeListViewModel(
-    private val context: Context
+class HomeListViewModel(context: Context
 ) : ViewModel() {
 
     private val itemListHomeService = ItemsHomeService()
@@ -34,7 +33,7 @@ class HomeListViewModel(
     }
 
     fun editFav(id : String){
-        favorites.manageFavs(id)
+        favorites.favoriteManager(id)
         verifyFavs()
     }
 
@@ -45,5 +44,4 @@ class HomeListViewModel(
             }
         }
     }
-
 }

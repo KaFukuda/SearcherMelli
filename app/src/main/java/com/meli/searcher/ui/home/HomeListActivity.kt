@@ -1,25 +1,21 @@
-package com.meli.searcher.view.home
+package com.meli.searcher.ui.home
 
 import android.content.Intent
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.os.bundleOf
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.meli.searcher.databinding.ActivityHomeListBinding
 import com.meli.searcher.model.ItemDetails
-import com.meli.searcher.view.products.DetailsActivity
-import kotlin.math.roundToInt
+import com.meli.searcher.ui.products.ProductDetailsActivity
 
 class HomeListActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityHomeListBinding.inflate(layoutInflater) }
     private val homeListViewModel by lazy { HomeListViewModel(applicationContext) }
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,26 +24,27 @@ class HomeListActivity : AppCompatActivity() {
 
         val rv: RecyclerView = binding.recycler
 
-        val adapter = HomeListAdapter (
+        val adapter = HomeListAdapter(
             { openItem(it) },
-            { manageFavs(it) }
+            { favoritesManager(it) }
         )
 
         rv.adapter = adapter
 
-
-         homeListViewModel._mList.observe(this) {
+        homeListViewModel._mList.observe(this) {
             adapter.setItems(it)
         }
 
-        //método que filtra os dados da homeListModelView
+        //This method filter data of homeListModelView
         val wordSearchView = binding.inputField
         fun setupSearchView() {
-            wordSearchView.clearFocus() //limpa o campo
+            wordSearchView.clearFocus() //clean input field
             wordSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     binding.msgEmpty.isGone = true
-                    homeListViewModel.searchByWord(query)
+                    //fazer when
+                    if (query.length < 3) toastMessage("Não foi possível retornar a busca. Digite uma palavra com mínimo de 3 letras")
+                    else homeListViewModel.searchByWord(query)
                     return false
                 }
 
@@ -59,24 +56,22 @@ class HomeListActivity : AppCompatActivity() {
         setupSearchView()
     }
 
-
-    //M. ao clicar no item aponta pro valor setado
     private fun openItem(itemDetails: ItemDetails) {
-
-        val intent = Intent(this, DetailsActivity::class.java)
-        //val bundle = bundleOf("itemDetails" to itemDetails)
-        //intent.putExtras(bundle)
-        intent.putExtra("itemDetails" , itemDetails )
+        val intent = Intent(this, ProductDetailsActivity::class.java)
+        intent.putExtra("itemDetails", itemDetails)
         startActivity(intent)
     }
-    private fun toastMsg(msg: String?) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
-    }
 
-    private fun manageFavs(id: String){
+    private fun favoritesManager(id: String) {
         homeListViewModel.editFav(id)
     }
 
+    fun toastMessage(message : String) {
+        val toast =
+            Toast.makeText(this, message, Toast.LENGTH_LONG)
+        toast.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL, 0, 0)
+        toast.show()
+    }
 }
 
 /*fun hideKeyboard(view: View) {

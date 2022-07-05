@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:contextClickable="false"
-    tools:context=".view.home.HomeListActivity">
+    tools:context=".ui.home.HomeListActivity">
 
     <RelativeLayout
         android:id="@+id/view"

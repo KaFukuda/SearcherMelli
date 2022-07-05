@@ -9,11 +9,12 @@ import retrofit2.http.Header
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface Endpoint {
+interface EndpointsServiceCoroutines {
 
-    @GET("sites/MLB/domain_discovery/search?limit=2")
+    @GET("sites/MLB/domain_discovery/search")
     suspend fun getByEntryData(
         @Query("q") q: String,
+        @Query("limit") limit : Int = 1
     ) : List<DiscoveryCategory>
 
     @GET("highlights/MLB/category/{id}")
