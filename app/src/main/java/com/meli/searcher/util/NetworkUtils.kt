@@ -1,5 +1,6 @@
 package com.meli.searcher.util
 
+import android.util.Log
 import com.meli.searcher.env.TOKEN
 import com.meli.searcher.service.api.EndpointsServiceCoroutines
 import okhttp3.OkHttpClient
@@ -28,24 +29,19 @@ class NetworkUtils {
 
         //conexao
         fun createService(): EndpointsServiceCoroutines {
-            val response : String
             val getRetrofit = getRetrofitInstance().create(EndpointsServiceCoroutines::class.java)
             try {
                 return getRetrofit
             } catch (e: Exception) {
-                println("CreateService: Erro na chamada da instancia retrofit : $e")
+                println("NetworkUtils - CreateService: Error on call retrofit : $e")
             }
             return getRetrofit
         }
 
         fun getToken(): String {
-            when {
-                TOKEN == "" -> println("getToken: String TOKEN vazia")
-                else -> return "Bearer $TOKEN"
-            }
             return "Bearer $TOKEN"
         }
-
     }
-
 }
+
+

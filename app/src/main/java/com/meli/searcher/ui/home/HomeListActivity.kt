@@ -20,7 +20,7 @@ class HomeListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        supportActionBar?.hide() //remove a barra de ajuda
+        supportActionBar?.hide() //remove toolbar
 
         val rv: RecyclerView = binding.recycler
 
@@ -42,9 +42,10 @@ class HomeListActivity : AppCompatActivity() {
             wordSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     binding.msgEmpty.isGone = true
-                    //fazer when
-                    if (query.length < 3) toastMessage("Não foi possível retornar a busca. Digite uma palavra com mínimo de 3 letras")
-                    else homeListViewModel.searchByWord(query)
+                    when {
+                        query.length < 3 -> toastMessage("Não foi possível retornar a busca. Digite uma palavra com mínimo de 3 letras")
+                        else -> homeListViewModel.searchByWord(query)
+                    }
                     return false
                 }
 
@@ -54,6 +55,13 @@ class HomeListActivity : AppCompatActivity() {
             })
         }
         setupSearchView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (homeListViewModel._mList.value != null)
+            homeListViewModel.verifyFavs()
+
     }
 
     private fun openItem(itemDetails: ItemDetails) {
@@ -66,7 +74,7 @@ class HomeListActivity : AppCompatActivity() {
         homeListViewModel.editFav(id)
     }
 
-    fun toastMessage(message : String) {
+    fun toastMessage(message: String) {
         val toast =
             Toast.makeText(this, message, Toast.LENGTH_LONG)
         toast.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL, 0, 0)

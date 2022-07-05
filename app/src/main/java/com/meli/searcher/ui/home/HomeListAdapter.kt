@@ -13,7 +13,7 @@ import kotlin.math.roundToInt
 
 class HomeListAdapter(
     val itemListener: (itemDetails: ItemDetails) -> Unit,
-    val favListener: (id : String) -> Unit
+    val favListener: (id: String) -> Unit
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
     private val item: MutableList<ItemDetails> = mutableListOf()
 
@@ -29,7 +29,7 @@ class HomeListAdapter(
 
     override fun getItemCount(): Int {
         if (item.size != 0)
-         else
+        else
             println("getItemCount: Error in length list -> empty list or invalid characters size")
         return item.size
     }
@@ -49,18 +49,18 @@ class HomeListAdapter(
 
             Picasso.get().load(item.secure_thumbnail).into(view.imageRecyclerItem)
 
-            val priceBr = item.price.toString()
+            val priceBr = String.format("%.2f", item.price?.toDouble())
             "R$ $priceBr".also { view.priceRecyclerItem.text = it }
 
-             "Disponível para venda: ${item.available_quantity}".also {
+            "Disponível para venda: ${item.available_quantity}".also {
                 view.description1RecyclerItem.text = it
             }
 
-            val payment: String = (item.price?.toDouble()?.div(12))?.roundToInt().toString()
+            val payment: String = String.format("%.2f", item.price?.toDouble()?.div(12))
             "em 12x R$ $payment".also { view.description2RecyclerItem.text = it }
 
             Picasso.get().load(
-                if(item.is_favorite!!) R.drawable.heart_blue else R.drawable.heart
+                if (item.is_favorite!!) R.drawable.heart_blue else R.drawable.heart
             ).into(view.favIcon)
 
             view.cardView.setOnClickListener {
@@ -71,7 +71,6 @@ class HomeListAdapter(
             view.favIcon.setOnClickListener {
                 favListener(item.id!!)
             }
-
         }
     }
 }

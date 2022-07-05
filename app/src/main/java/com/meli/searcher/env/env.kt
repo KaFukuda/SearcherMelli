@@ -1,3 +1,4 @@
 package com.meli.searcher.env
 
-const val TOKEN = "APP_USR-2859167208567892-070423-625d2cc9ada131061d6bc54ee23d391d-250404804"
+//const val API_BASE_URL = "https://api.mercadolibre.com/"
+const val TOKEN = "APP_USR-2859167208567892-070514-8647fd0e9dc69eeca2d8fcaf2f958476-250404804"

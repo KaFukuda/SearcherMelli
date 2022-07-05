@@ -15,7 +15,7 @@ class Favorites( context : Context) {
     }
 
     //add and remove favorite items
-    fun favoriteManager(id: String) {
+    fun favoriteManager(id: String):Boolean {
         val list = getListFavs()
         val result = list.add(id)
 
@@ -23,5 +23,6 @@ class Favorites( context : Context) {
             list.remove(id)
 
         sharedPreferences.edit().putStringSet(idShared, list).apply()
+    return result
     }
 }
