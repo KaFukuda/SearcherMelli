@@ -1,11 +1,15 @@
 package com.meli.searcher.ui.products
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
+import androidx.appcompat.widget.SearchView
 import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityProductDetailsBinding
 import com.meli.searcher.model.ItemDetailsModel
+import com.meli.searcher.ui.home.HomeListActivity
 import com.squareup.picasso.Picasso
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -21,6 +25,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         productDetailsViewModel.itemDetails = itemDetails // atribuindo viewModel a ItemDetails
         getItemData()
         setListener()
+        returnHome()
         productDetailsViewModel.details.observe(this) { binding.detailsItem.text = it }
         productDetailsViewModel.getMDetail()
     }
@@ -47,6 +52,14 @@ class ProductDetailsActivity : AppCompatActivity() {
         binding.favIconDetail.setOnClickListener {
             productDetailsViewModel.editFavorite()
             toggleIcon()
+        }
+    }
+
+    private fun returnHome(){
+        val intent = Intent( this, HomeListActivity::class.java)
+        val iconSearch: ImageView = findViewById(R.id.iconSearch)
+        iconSearch.setOnClickListener {
+            startActivity(intent)
         }
     }
 

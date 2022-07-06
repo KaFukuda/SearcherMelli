@@ -26,7 +26,7 @@ class HomeListViewModel(context: Context
         viewModelScope.launch {
             mList.value = itemListHomeService.searchByWord(word).apply {
                 this.forEach {
-                    it.is_favorite = favorites.getListFavs().contains(it.id)
+                    it.is_favorite = favorites.getListOfFavorites().contains(it.id)
                 }
             }
         }
@@ -40,7 +40,7 @@ class HomeListViewModel(context: Context
     fun verifyByIdFavoriteList(){
         mList.value = mList.value.apply {
             this?.forEach {
-                it.is_favorite = favorites.getListFavs().contains(it.id)
+                it.is_favorite = favorites.getListOfFavorites().contains(it.id)
             }
         }
     }

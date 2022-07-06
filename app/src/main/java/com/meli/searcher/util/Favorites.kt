@@ -10,13 +10,13 @@ class Favorites( context : Context) {
     private val sharedPreferences = context.getSharedPreferences(idShared , Context.MODE_PRIVATE)
 
     //access favorite's list
-    fun getListFavs(): MutableSet<String>{
+    fun getListOfFavorites(): MutableSet<String>{
         return sharedPreferences.getStringSet(idShared, mutableSetOf())?.toMutableSet()!!
     }
 
     //add and remove favorite items
     fun favoriteManager(id: String):Boolean {
-        val list = getListFavs()
+        val list = getListOfFavorites()
         val result = list.add(id)
 
         if(!result)

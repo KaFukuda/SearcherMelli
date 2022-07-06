@@ -68,6 +68,7 @@ class HomeListActivity : AppCompatActivity() {
         //remove focusable of searchView
         val searchView: SearchView = findViewById(R.id.input_field)
         searchView.setQuery("" , false)
+        searchView.queryHint = "Buscar no Mercado Livre";
         binding.root.requestFocus()
 
     }
