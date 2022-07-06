@@ -1,23 +1,19 @@
-package com.meli.searcher.util
+package com.meli.searcher.service.api
 
-import android.util.Log
+import com.meli.searcher.env.API_BASE_URL
 import com.meli.searcher.env.TOKEN
-import com.meli.searcher.service.api.EndpointsServiceCoroutines
 import okhttp3.OkHttpClient
-import retrofit2.Call
-import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class NetworkUtils {
-    //utilitário para instanciar o retrofit
+class RetrofitNetwork {
+
     companion object {
         private lateinit var INSTANCE: Retrofit
-        private const val API_BASE_URL = "https://api.mercadolibre.com/"
 
         private fun getRetrofitInstance(): Retrofit {
             val http = OkHttpClient.Builder()
-            if (!::INSTANCE.isInitialized) {
+            if (!Companion::INSTANCE.isInitialized) {
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(API_BASE_URL)
                     .client(http.build())
@@ -27,7 +23,7 @@ class NetworkUtils {
             return INSTANCE
         }
 
-        //conexao
+        //connection
         fun createService(): EndpointsServiceCoroutines {
             val getRetrofit = getRetrofitInstance().create(EndpointsServiceCoroutines::class.java)
             try {

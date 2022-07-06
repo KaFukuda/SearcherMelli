@@ -6,14 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.meli.searcher.model.ItemDetails
-import com.meli.searcher.service.api.ItemsHomeService
+import com.meli.searcher.service.api.CallsApiService
 import com.meli.searcher.util.Favorites
 import kotlinx.coroutines.launch
 
 class HomeListViewModel(context: Context
 ) : ViewModel() {
 
-    private val itemListHomeService = ItemsHomeService()
+    private val itemListHomeService = CallsApiService()
     private val mList = MutableLiveData<List<ItemDetails>>()
     private val favorites = Favorites(context)
 

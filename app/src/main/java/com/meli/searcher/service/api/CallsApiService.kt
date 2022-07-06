@@ -1,16 +1,13 @@
 package com.meli.searcher.service.api
 
 import android.util.Log
-import android.view.Gravity
-import android.widget.Toast
 import com.meli.searcher.model.ItemDetails
-import com.meli.searcher.util.NetworkUtils
 import retrofit2.HttpException
 
-class ItemsHomeService {
+class CallsApiService {
 
-    private val apiService = NetworkUtils.createService()
-    private val token = NetworkUtils.getToken()
+    private val apiService = RetrofitNetwork.createService()
+    private val token = RetrofitNetwork.getToken()
 
     suspend fun searchByWord(word: String): List<ItemDetails> {
         var itemList: List<ItemDetails> = emptyList()

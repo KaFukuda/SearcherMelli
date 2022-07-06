@@ -21,18 +21,19 @@ class ProductDetailsActivity : AppCompatActivity() {
         productDetailsViewModel.itemDetails = itemDetails // atribuindo viewModel a ItemDetails
         getItemData()
         setListener()
-        productDetailsViewModel.details.observe(this,{
-            binding.detailsItem.text = it
-        })
+        productDetailsViewModel.details.observe(this) { binding.detailsItem.text = it }
         productDetailsViewModel.getMDetail()
     }
 
     private fun getItemData() {
         try {
             binding.detailsTitle.text = productDetailsViewModel.itemDetails.title
-            binding.detailsMoreInfo.text = productDetailsViewModel.itemDetails.available_quantity
-            binding.detailsPrice.text = String.format("%.2f",productDetailsViewModel.itemDetails.price?.toDouble())
-            Picasso.get().load(productDetailsViewModel.itemDetails.pictures[0].secure_url).into(binding.detailsImage)
+
+            val price = String.format("%.2f", productDetailsViewModel.itemDetails.price?.toDouble())
+            " R$ $price ".also { binding.detailsPrice.text = it }
+
+            Picasso.get().load(productDetailsViewModel.itemDetails.pictures[0].secure_url)
+                .into(binding.detailsImage)
             toggleIcon()
         } catch (e: Exception) {
             Log.e(
@@ -51,7 +52,7 @@ class ProductDetailsActivity : AppCompatActivity() {
 
     private fun toggleIcon() {
         binding.favIconDetail.setImageResource(
-            if (productDetailsViewModel.itemDetails.is_favorite!!) R.drawable.heart_blue else R.drawable.heart
+            if (productDetailsViewModel.itemDetails.is_favorite!!) R.drawable.heart_full else R.drawable.heart_empty
         )
     }
 

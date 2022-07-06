@@ -64,6 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_light"
         android:text="+2.000 resultados"
         android:textColor="@color/grey_300"
@@ -75,15 +77,16 @@
         android:id="@+id/recycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="110dp"
         android:clickable="true"
         android:focusable="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:itemCount="10"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:itemCount="20"
         tools:listitem="@layout/recycler_item_list" />
 
     <TextView
@@ -96,11 +99,9 @@
         android:textColorLink="@color/blue_200"
         android:textSize="14sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/recycler"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.805"
-        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

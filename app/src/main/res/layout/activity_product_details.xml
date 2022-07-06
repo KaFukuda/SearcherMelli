@@ -76,24 +76,25 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/iconHeart"
                 android:layout_alignTop="@+id/iconHeart"
-                android:layout_marginStart="-275dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginStart="-277dp"
+                android:layout_marginTop="41dp"
                 android:layout_marginEnd="83dp"
                 app:srcCompat="@drawable/local" />
 
             <TextView
                 android:id="@+id/adress"
-                android:layout_width="348dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/imageView"
                 android:layout_alignTop="@+id/iconHeart"
                 android:layout_alignBottom="@+id/imageView"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="42dp"
-                android:layout_marginEnd="-39dp"
-                android:layout_marginBottom="-5dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="-40dp"
+                android:layout_marginBottom="-1dp"
                 android:layout_toStartOf="@+id/iconCart"
                 android:fontFamily="@font/montserrat_light"
+                android:padding="1dp"
                 android:text="@string/adress"
                 android:textColor="@color/black_text" />
 
@@ -103,15 +104,16 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/detailsMenu"
                 android:layout_alignTop="@+id/iconHeart"
-                android:layout_marginStart="38dp"
-                android:layout_marginTop="-7dp"
-                android:layout_marginEnd="114dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginEnd="119dp"
                 android:layout_toStartOf="@+id/iconHeart"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat_light"
                 android:padding="2dp"
                 android:text="Produto"
                 android:textColor="@color/black_text"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="normal" />
 
             <ImageView
                 android:id="@+id/detailsMenu"
@@ -119,9 +121,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/iconHeart"
                 android:layout_alignBottom="@+id/iconCart"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="236dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginBottom="3dp"
                 android:layout_toStartOf="@+id/iconHeart"
                 app:srcCompat="@drawable/menu" />
 
@@ -138,7 +140,7 @@
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailsTitle"
-            app:srcCompat="@drawable/big_car_test" />
+            app:srcCompat="@drawable/no_image" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -170,20 +172,7 @@
                 android:paddingStart="20dp"
                 android:paddingTop="4dp"
                 android:paddingEnd="4dp"
-                android:paddingBottom="4dp"
-                android:text="TextView"
-                android:textColor="@color/grey_500"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/detailsMoreInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_light"
-                android:paddingStart="20dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="4dp"
-                android:paddingBottom="4dp"
+                android:paddingBottom="40dp"
                 android:text="TextView"
                 android:textColor="@color/grey_500"
                 android:textSize="16sp" />
@@ -194,7 +183,6 @@
             android:id="@+id/detailsPrice"
             android:layout_width="299dp"
             android:layout_height="55dp"
-            android:layout_marginEnd="24dp"
             android:fontFamily="@font/montserrat_medium"
             android:paddingStart="20dp"
             android:paddingTop="4dp"
@@ -203,8 +191,8 @@
             android:textColor="@color/black_text"
             android:textSize="36sp"
             android:visibility="visible"
-            app:layout_constraintEnd_toStartOf="@+id/favIconDetail"
             app:layout_constraintTop_toBottomOf="@+id/detailsImage"
+            tools:layout_editor_absoluteX="16dp"
             tools:text="20000" />
 
         <TextView
@@ -226,15 +214,19 @@
 
         <ImageButton
             android:id="@+id/favIconDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="77dp"
+            android:layout_height="56dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="4dp"
             android:backgroundTint="#00FFFFFF"
+            android:paddingBottom="0dp"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/detailsPrice"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/detailsPrice"
             app:layout_constraintTop_toBottomOf="@+id/detailsImage"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.2"
             app:srcCompat="@drawable/fav" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
