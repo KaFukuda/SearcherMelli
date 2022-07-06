@@ -95,8 +95,8 @@ Será necessário :
 ````
   Ter uma conta Desenvolvedor na Plataforma Mercado Libre;
   Registrar uma aplicação na Plataforma;
-  Seguir procedimentos internos para gerar o pré-token 
-  E por fim gerar um Bearer Token e usá-lo nesse projeto nas constante TOKEN 
+  Seguir procedimentos internos para gerar o pré-token (solicite o documento)
+  E por fim gerar um Bearer Token e usá-lo nesse projeto na constante TOKEN 
 ````
 
 Em posse de um TOKEN e da URL_BASE:
