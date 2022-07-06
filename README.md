@@ -1,4 +1,4 @@
-# SEARCHMELI  <img alt="android" src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />  <img alt="Kotlin" src="https://img.shields.io/badge/kotlin-%230095D5.svg?&style=for-the-badge&logo=kotlin&logoColor=orange"/>
+# SEARCHER MELI  <img alt="android" src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />  <img alt="Kotlin" src="https://img.shields.io/badge/kotlin-%230095D5.svg?&style=for-the-badge&logo=kotlin&logoColor=orange"/>
 
 Aplicação criada com objetivo de consumir APIs do Mercado Livre, e assim trazer resultados de pesquisa de produtos definidos por categorias e seus detalhes escolhidos pelo usuário.
 
@@ -15,7 +15,7 @@ Aplicação criada com objetivo de consumir APIs do Mercado Livre, e assim traze
 
 ## FUNCIONALIDADES
 
-Na tela principal ``HomeList``:
+Na tela principal  ``HomeList``:
 
 - Filtra por uma categoria quando o usuário digita uma palavra
 - Retorna uma lista com os 20 primeiros itens da categoria da busca
@@ -28,7 +28,7 @@ Na tela principal ``HomeList``:
   - Preço parcelado em 12X
   - Quantidade de itens disponíveis para venda
   
-Na tela de produtos``ProductDetails``:
+Na tela de produtos  ``ProductDetails``:
 
 - Traz a opção de favoritar o produto pelo ícone de coração
 - Traz a informação do item clicado da tela anterior ( HOME )
@@ -88,11 +88,15 @@ git clone https://github.com/KaFukuda/SearcherMelli.git
 ````
 ---
 
-#### Se tem acesso das APIs Mercado Livre:
+#### Se tem acesso as APIs do Mercado Livre como colaborador:
 
-`Será necessário seguir procedimentos de pré-token para gerar um Bearer Token e usá-lo nesse projeto nas constantes abaixo `
+`Será necessário :
+  Ter uma conta Desenvolvedor na Plataforma Mercado Libre;
+  Registrar uma aplicação na Plataforma;
+  Seguir procedimentos internos para gerar o pré-token 
+  E por fim gerar um Bearer Token e usá-lo nesse projeto nas constante TOKEN `
 
-Então,
+Em posse de um TOKEN e da URL_BASE:
 
 Use o arquivo ``envExample.kt`` como base de constantes de desevolvimento.
 
@@ -109,9 +113,9 @@ const val TOKEN = "APP_....."
 
 ---
 
-#### Se não tem acesso as Apis Mercado livre:
+#### Se não tiver acesso as Apis Mercado livre:
 
-Altere os serviços e chamadas do diretório ``service`` conforme sua necessidade
+Altere os serviços e chamadas de Apis do diretório ``service`` conforme sua necessidade
 
 ---
 
