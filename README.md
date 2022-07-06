@@ -1,18 +1,18 @@
-## App SearchMeli
+## APP SearchMeli
 
 Aplicação criada com objetivo de consumir APIs do Mercado Livre, e assim trazer resultados de pesquisa de produtos definidos por categorias e seus detalhes.
 
 ---
 
-#### Telas principais
-
-<img src="https://github.com/KaFukuda/images/blob/main/Tela_Inicial.png"/>
-<img src="https://github.com/KaFukuda/images/blob/main/Tela_Inicial_Lista.png"/>
-<img src="https://github.com/KaFukuda/images/blob/main/Tela_Detalhe_Produto.png"/>
+## TELAS PRINCIPAIS
+<div align="left"> 
+<img height="780" width="400" src="https://github.com/KaFukuda/images/blob/main/Tela_Inicial_Lista.png"/>
+<img height="780" width="400" src="https://github.com/KaFukuda/images/blob/main/Tela_Detalhe_Produto.png"/>
+</div>
 
 ---
 
-### Funcionalidades
+### FUNCIONALIDADES
 
 Na tela Principal: 
 
@@ -39,7 +39,7 @@ Na tela de Produtos:
 
 ---
 
-### Tecnologias
+### TECNOLOGIAS
 
 - Kotlin 
 - Android Studio
@@ -49,7 +49,7 @@ Na tela de Produtos:
 
 ---
 
-### Recursos 
+### RECURSOS 
 
 - RecyclerView
 - Activity
