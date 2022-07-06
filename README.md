@@ -90,11 +90,14 @@ git clone https://github.com/KaFukuda/SearcherMelli.git
 
 #### Se tem acesso as APIs do Mercado Livre como colaborador:
 
-`Será necessário :
+Será necessário :
+
+````
   Ter uma conta Desenvolvedor na Plataforma Mercado Libre;
   Registrar uma aplicação na Plataforma;
   Seguir procedimentos internos para gerar o pré-token 
-  E por fim gerar um Bearer Token e usá-lo nesse projeto nas constante TOKEN `
+  E por fim gerar um Bearer Token e usá-lo nesse projeto nas constante TOKEN 
+````
 
 Em posse de um TOKEN e da URL_BASE:
 
