@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityProductDetailsBinding
-import com.meli.searcher.model.ItemDetails
+import com.meli.searcher.model.ItemDetailsModel
 import com.squareup.picasso.Picasso
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -17,7 +17,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         supportActionBar?.hide() //remove toolbar
-        val itemDetails = intent?.extras?.get("itemDetails") as ItemDetails
+        val itemDetails = intent?.extras?.get("itemDetails") as ItemDetailsModel
         productDetailsViewModel.itemDetails = itemDetails // atribuindo viewModel a ItemDetails
         getItemData()
         setListener()

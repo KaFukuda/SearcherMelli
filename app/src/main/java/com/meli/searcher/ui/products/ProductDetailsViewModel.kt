@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.meli.searcher.model.ItemDetails
+import com.meli.searcher.model.ItemDetailsModel
 import com.meli.searcher.service.api.CallsApiService
 import com.meli.searcher.util.Favorites
 import kotlinx.coroutines.launch
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class ProductDetailsViewModel(
     context: Context
 ): ViewModel() {
-    lateinit var itemDetails: ItemDetails //acesso a todos os dados da view
+    lateinit var itemDetails: ItemDetailsModel //acesso a todos os dados da view
     private val favorites = Favorites(context)
     private val service = CallsApiService()
     val details = MutableLiveData<String> ()

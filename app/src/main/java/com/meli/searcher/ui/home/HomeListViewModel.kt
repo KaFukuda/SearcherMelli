@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.meli.searcher.model.ItemDetails
+import com.meli.searcher.model.ItemDetailsModel
 import com.meli.searcher.service.api.CallsApiService
 import com.meli.searcher.util.Favorites
 import kotlinx.coroutines.launch
@@ -14,10 +14,10 @@ class HomeListViewModel(context: Context
 ) : ViewModel() {
 
     private val itemListHomeService = CallsApiService()
-    private val mList = MutableLiveData<List<ItemDetails>>()
+    private val mList = MutableLiveData<List<ItemDetailsModel>>()
     private val favorites = Favorites(context)
 
-    val _mList: LiveData<List<ItemDetails>>
+    val _mList: LiveData<List<ItemDetailsModel>>
     get() {
         return mList
     }
@@ -32,12 +32,12 @@ class HomeListViewModel(context: Context
         }
     }
 
-    fun editFav(id : String){
+    fun editFavorites(id : String){
         favorites.favoriteManager(id)
-        verifyFavs()
+        verifyByIdFavoriteList()
     }
 
-    fun verifyFavs(){
+    fun verifyByIdFavoriteList(){
         mList.value = mList.value.apply {
             this?.forEach {
                 it.is_favorite = favorites.getListFavs().contains(it.id)

@@ -1,16 +1,16 @@
 package com.meli.searcher.service.api
 
 import android.util.Log
-import com.meli.searcher.model.ItemDetails
+import com.meli.searcher.model.ItemDetailsModel
 import retrofit2.HttpException
 
 class CallsApiService {
 
-    private val apiService = RetrofitNetwork.createService()
-    private val token = RetrofitNetwork.getToken()
+    private val apiService = RetrofitNetworkService.createService()
+    private val token = RetrofitNetworkService.getToken()
 
-    suspend fun searchByWord(word: String): List<ItemDetails> {
-        var itemList: List<ItemDetails> = emptyList()
+    suspend fun searchByWord(word: String): List<ItemDetailsModel> {
+        var itemList: List<ItemDetailsModel> = emptyList()
 
         try {
             val predictorWord =
@@ -27,7 +27,6 @@ class CallsApiService {
             itemList = apiService.getItems(ids.joinToString()).map {
                 it.body
             }
-
         } catch (e: Exception) {
             val throwable = Throwable()
             if (e !is HttpException && !throwable.equals(401)) {
@@ -42,10 +41,8 @@ class CallsApiService {
 
     suspend fun getDetail(id: String): String {
         var detail = ""
-
         try {
             detail = apiService.getDetails(id).plain_text!!
-
         } catch (e: Exception) {
             val throwable = Throwable()
             if (e !is HttpException && !throwable.equals(401)) {

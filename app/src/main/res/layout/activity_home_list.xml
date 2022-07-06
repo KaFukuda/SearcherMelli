@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:contextClickable="false"
+    android:focusableInTouchMode="true"
     tools:context=".ui.home.HomeListActivity">
 
     <RelativeLayout
@@ -45,7 +46,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:iconifiedByDefault="false"/>
 
     <ImageView
         android:id="@+id/cart"

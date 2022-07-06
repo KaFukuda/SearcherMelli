@@ -8,8 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
+import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityHomeListBinding
-import com.meli.searcher.model.ItemDetails
+import com.meli.searcher.model.ItemDetailsModel
 import com.meli.searcher.ui.products.ProductDetailsActivity
 
 class HomeListActivity : AppCompatActivity() {
@@ -21,7 +22,6 @@ class HomeListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         supportActionBar?.hide() //remove toolbar
-
         val rv: RecyclerView = binding.recycler
 
         val adapter = HomeListAdapter(
@@ -33,6 +33,7 @@ class HomeListActivity : AppCompatActivity() {
 
         homeListViewModel._mList.observe(this) {
             adapter.setItems(it)
+
         }
 
         //This method filter data of homeListModelView
@@ -43,7 +44,7 @@ class HomeListActivity : AppCompatActivity() {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     binding.msgEmpty.isGone = true
                     when {
-                        query.length < 3 -> toastMessage("Não foi possível retornar a busca. Digite uma palavra com mínimo de 3 letras")
+                        query.length < 3 -> toastMessage("Não foi possível retornar a busca. Digite uma palavra maior.")
                         else -> homeListViewModel.searchByWord(query)
                     }
                     return false
@@ -59,19 +60,26 @@ class HomeListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+
+        //verify if list is null and apply method of favorites
         if (homeListViewModel._mList.value != null)
-            homeListViewModel.verifyFavs()
+            homeListViewModel.verifyByIdFavoriteList()
+
+        //remove focusable of searchView
+        val searchView: SearchView = findViewById(R.id.input_field)
+        searchView.setQuery("" , false)
+        binding.root.requestFocus()
 
     }
 
-    private fun openItem(itemDetails: ItemDetails) {
+    private fun openItem(itemDetails: ItemDetailsModel) {
         val intent = Intent(this, ProductDetailsActivity::class.java)
         intent.putExtra("itemDetails", itemDetails)
         startActivity(intent)
     }
 
     private fun favoritesManager(id: String) {
-        homeListViewModel.editFav(id)
+        homeListViewModel.editFavorites(id)
     }
 
     fun toastMessage(message: String) {
@@ -80,11 +88,9 @@ class HomeListActivity : AppCompatActivity() {
         toast.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL, 0, 0)
         toast.show()
     }
+
 }
 
-/*fun hideKeyboard(view: View) {
-    val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(view.windowToken, 0)
-}*/
+
 
 

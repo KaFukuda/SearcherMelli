@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitNetwork {
+class RetrofitNetworkService {
 
     companion object {
         private lateinit var INSTANCE: Retrofit
@@ -24,8 +24,8 @@ class RetrofitNetwork {
         }
 
         //connection
-        fun createService(): EndpointsServiceCoroutines {
-            val getRetrofit = getRetrofitInstance().create(EndpointsServiceCoroutines::class.java)
+        fun createService(): EndpointsCoroutinesService {
+            val getRetrofit = getRetrofitInstance().create(EndpointsCoroutinesService::class.java)
             try {
                 return getRetrofit
             } catch (e: Exception) {

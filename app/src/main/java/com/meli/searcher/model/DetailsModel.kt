@@ -1,5 +1,5 @@
 package com.meli.searcher.model
 
-data class Details(
+data class DetailsModel(
     val plain_text: String?
 )

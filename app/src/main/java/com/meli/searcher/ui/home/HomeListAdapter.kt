@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.meli.searcher.R
 import com.meli.searcher.databinding.RecyclerItemListBinding
-import com.meli.searcher.model.ItemDetails
+import com.meli.searcher.model.ItemDetailsModel
 import com.squareup.picasso.Picasso
 
 class HomeListAdapter(
-    val itemListener: (itemDetails: ItemDetails) -> Unit,
+    val itemListener: (itemDetails: ItemDetailsModel) -> Unit,
     val favListener: (id: String) -> Unit
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
-    private val item: MutableList<ItemDetails> = mutableListOf()
+    private val item: MutableList<ItemDetailsModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -32,7 +32,7 @@ class HomeListAdapter(
         return item.size
     }
 
-    fun setItems(listFinal: List<ItemDetails>) {
+    fun setItems(listFinal: List<ItemDetailsModel>) {
         item.clear()
         item.addAll(listFinal)
         notifyDataSetChanged()
@@ -41,7 +41,7 @@ class HomeListAdapter(
     inner class ViewHolder(private val view: RecyclerItemListBinding) :
         RecyclerView.ViewHolder(view.root) {
 
-        fun bind(item: ItemDetails) {
+        fun bind(item: ItemDetailsModel) {
 
             view.nameRecyclerItem.text = item.title
 
