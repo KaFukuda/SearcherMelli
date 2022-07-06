@@ -65,6 +65,7 @@ Na tela de Produtos:
   <img height="700" width="400" src="https://github.com/KaFukuda/images/blob/main/estrutura.png"/>
 </div>
 
+---
 
 ### PARA ACESSAR O PROJETO LOCALMENTE
 
@@ -81,6 +82,7 @@ Para clonar esse projeto, faça isso em um terminal:
 ``
 git clone https://github.com/KaFukuda/SearcherMelli.git
 ``
+---- 
 
 #### Se tem acesso das APIs Mercado Livre:
 
