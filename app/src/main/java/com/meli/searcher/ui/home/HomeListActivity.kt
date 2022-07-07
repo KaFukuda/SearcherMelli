@@ -1,19 +1,11 @@
 package com.meli.searcher.ui.home
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
-import com.google.android.material.snackbar.Snackbar
 import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityHomeListBinding
 import com.meli.searcher.model.ItemDetailsModel
@@ -41,7 +33,6 @@ class HomeListActivity : AppCompatActivity() {
 
         homeListViewModel._mList.observe(this) {
             adapter.setItems(it)
-
         }
 
         //This method filter data of homeListModelView
@@ -50,17 +41,18 @@ class HomeListActivity : AppCompatActivity() {
             wordSearchView.clearFocus() //clean input field
             wordSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
+
                     binding.msgEmpty.isGone = true //remove phrase
 
                     when (query.length) {
-                        in 0..3 -> errorMessages.msgErrorSnack(binding.root, "Não foi possível retornar a busca. Digite uma palavra maior.")
-                        //in 0..3 -> toastMessage("Não foi possível retornar a busca. Digite uma palavra maior.")
+                        in 0..3 -> errorMessages.messageErrorOnSnack(binding.root, "Não foi possível retornar a busca. Digite uma palavra maior.")
                         else -> homeListViewModel.searchByWord(query)
                     }
                     return false
                 }
 
                 override fun onQueryTextChange(query: String): Boolean {
+                    binding.msgEmpty.isGone = false //add phrase
                     return false
                 }
             })

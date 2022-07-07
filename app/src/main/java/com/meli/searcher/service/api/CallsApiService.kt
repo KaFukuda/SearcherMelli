@@ -15,11 +15,12 @@ class CallsApiService {
         try {
             val predictorWord =
                 apiService.getByEntryData(word).first()  //search by first word in SearchView
-            val highlightObj =
+
+            val highlightObject =
                 apiService.getHighlights(predictorWord.category_id, token) //search by category
 
             // verify by ITEM and returns an array
-            val ids = highlightObj.content.filter {
+            val ids = highlightObject.content.filter {
                 it.type == "ITEM"
             }.map {
                 it.id
@@ -29,11 +30,10 @@ class CallsApiService {
             }
         } catch (e: Exception) {
             val throwable = Throwable()
-            if (e !is HttpException && !throwable.equals(401)) {
-            } else
+            if (e is HttpException || throwable.equals(401))
                 Log.e(
                     "ItemsHomeService",
-                    "CreateService: Error on call to retrofit instance,TOKEN is expired or empty: $e"
+                    "searchByWord: Error on call this instance,TOKEN is expired or empty: $e"
                 )
         }
         return itemList
@@ -45,11 +45,10 @@ class CallsApiService {
             detail = apiService.getDetails(id).plain_text!!
         } catch (e: Exception) {
             val throwable = Throwable()
-            if (e !is HttpException && !throwable.equals(401)) {
-            } else
+            if (e is HttpException || throwable.equals(401))
                 Log.e(
                     "ItemsHomeService",
-                    "getDetail: Error on search by item details: $e"
+                    "getDetail: Error on call this instance,TOKEN is expired or empty: $e"
                 )
         }
         return detail

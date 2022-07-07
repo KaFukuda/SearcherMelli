@@ -13,6 +13,7 @@ class HomeListAdapter(
     val itemListener: (itemDetails: ItemDetailsModel) -> Unit,
     val favListener: (id: String) -> Unit
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
+
     private val item: MutableList<ItemDetailsModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,7 +23,7 @@ class HomeListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(item[position])
+        holder.binding(item[position])
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +42,7 @@ class HomeListAdapter(
     inner class ViewHolder(private val view: RecyclerItemListBinding) :
         RecyclerView.ViewHolder(view.root) {
 
-        fun bind(item: ItemDetailsModel) {
+        fun binding(item: ItemDetailsModel) {
 
             view.nameRecyclerItem.text = item.title
 
@@ -50,12 +51,12 @@ class HomeListAdapter(
             val priceBr = String.format("%.2f", item.price?.toDouble())
             "R$ $priceBr".also { view.priceRecyclerItem.text = it }
 
-            "Disponível: ${item.available_quantity} unid.".also {
-                view.description1RecyclerItem.text = it
-            }
-
             val payment: String = String.format("%.2f", item.price?.toDouble()?.div(12))
-            "em 12x R$ $payment sem juros".also { view.description2RecyclerItem.text = it }
+            "em 12x R$ $payment sem juros".also { view.paymentRecyclerItem.text = it }
+
+            "Disponível: ${item.available_quantity} unid.".also {
+                view.quantityRecyclerItem.text = it
+            }
 
             Picasso.get().load(
                 if (item.is_favorite!!) R.drawable.heart_full else R.drawable.heart_empty

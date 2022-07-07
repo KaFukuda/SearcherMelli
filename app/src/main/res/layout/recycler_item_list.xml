@@ -44,7 +44,7 @@
                 tools:text="$ 2.200.000" />
 
             <TextView
-                android:id="@+id/description2_recycler_item"
+                android:id="@+id/payment_recycler_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_medium"
@@ -57,7 +57,7 @@
                 tools:text="Bs.As. G.B.A. Norte" />
 
             <TextView
-                android:id="@+id/description1_recycler_item"
+                android:id="@+id/quantity_recycler_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_light"
