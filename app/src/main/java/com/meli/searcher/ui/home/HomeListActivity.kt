@@ -25,7 +25,7 @@ class HomeListActivity : AppCompatActivity() {
         val rv: RecyclerView = binding.recycler
 
         val adapter = HomeListAdapter(
-            { openItem(it) },
+            { openItemInProductDetails(it) },
             { favoritesManager(it) }
         )
 
@@ -75,7 +75,7 @@ class HomeListActivity : AppCompatActivity() {
 
     }
 
-    private fun openItem(itemDetails: ItemDetailsModel) {
+    private fun openItemInProductDetails(itemDetails: ItemDetailsModel) {
         val intent = Intent(this, ProductDetailsActivity::class.java)
         intent.putExtra("itemDetails", itemDetails)
         startActivity(intent)

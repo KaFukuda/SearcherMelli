@@ -13,6 +13,7 @@ class RetrofitNetworkService {
 
         private fun getRetrofitInstance(): Retrofit {
             val http = OkHttpClient.Builder()
+            // if the instance is not initialized then instantiate it
             if (!Companion::INSTANCE.isInitialized) {
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(API_BASE_URL)
