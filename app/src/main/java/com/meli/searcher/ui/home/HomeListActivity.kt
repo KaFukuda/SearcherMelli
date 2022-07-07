@@ -1,22 +1,30 @@
 package com.meli.searcher.ui.home
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
+import com.google.android.material.snackbar.Snackbar
 import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityHomeListBinding
 import com.meli.searcher.model.ItemDetailsModel
 import com.meli.searcher.ui.products.ProductDetailsActivity
+import com.meli.searcher.util.ErrorMessages
 
 class HomeListActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityHomeListBinding.inflate(layoutInflater) }
     private val homeListViewModel by lazy { HomeListViewModel(applicationContext) }
+    var errorMessages = ErrorMessages()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +50,11 @@ class HomeListActivity : AppCompatActivity() {
             wordSearchView.clearFocus() //clean input field
             wordSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String): Boolean {
-                    binding.msgEmpty.isGone = true
-                    when {
-                        query.length < 3 -> toastMessage("Não foi possível retornar a busca. Digite uma palavra maior.")
+                    binding.msgEmpty.isGone = true //remove phrase
+
+                    when (query.length) {
+                        in 0..3 -> errorMessages.msgErrorSnack(binding.root, "Não foi possível retornar a busca. Digite uma palavra maior.")
+                        //in 0..3 -> toastMessage("Não foi possível retornar a busca. Digite uma palavra maior.")
                         else -> homeListViewModel.searchByWord(query)
                     }
                     return false
@@ -67,7 +77,7 @@ class HomeListActivity : AppCompatActivity() {
 
         //remove focusable of searchView
         val searchView: SearchView = findViewById(R.id.input_field)
-        searchView.setQuery("" , false)
+        searchView.setQuery("", false)
         searchView.queryHint = "Buscar no Mercado Livre";
         binding.root.requestFocus()
 
@@ -81,13 +91,6 @@ class HomeListActivity : AppCompatActivity() {
 
     private fun favoritesManager(id: String) {
         homeListViewModel.editFavorites(id)
-    }
-
-    fun toastMessage(message: String) {
-        val toast =
-            Toast.makeText(this, message, Toast.LENGTH_LONG)
-        toast.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL, 0, 0)
-        toast.show()
     }
 
 }

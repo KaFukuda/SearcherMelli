@@ -49,7 +49,7 @@ class CallsApiService {
             } else
                 Log.e(
                     "ItemsHomeService",
-                    "getDetail: Error on search item details: $e"
+                    "getDetail: Error on search by item details: $e"
                 )
         }
         return detail

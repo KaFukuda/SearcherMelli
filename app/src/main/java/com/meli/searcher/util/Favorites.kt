@@ -2,7 +2,7 @@ package com.meli.searcher.util
 
 import android.content.Context
 
-class Favorites( context : Context) {
+class Favorites(context : Context) {
 
     private val idShared = "IDS_ITEM_FAV"
 
