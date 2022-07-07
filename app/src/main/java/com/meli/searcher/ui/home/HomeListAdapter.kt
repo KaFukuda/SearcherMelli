@@ -27,9 +27,6 @@ class HomeListAdapter(
     }
 
     override fun getItemCount(): Int {
-        if (item.size != 0)
-        else
-            println("getItemCount: Error in length list -> empty list or invalid characters size")
         return item.size
     }
 
