@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
-import androidx.appcompat.widget.SearchView
 import com.meli.searcher.R
 import com.meli.searcher.databinding.ActivityProductDetailsBinding
 import com.meli.searcher.model.ItemDetailsModel
@@ -63,11 +62,11 @@ class ProductDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun toggleIcon() {
+    private fun toggleIcon(): Boolean {
         binding.favIconDetail.setImageResource(
             if (productDetailsViewModel.itemDetails.is_favorite!!) R.drawable.heart_full else R.drawable.heart_empty
         )
+        return true
     }
-
 }
 

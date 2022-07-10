@@ -7,10 +7,11 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/ic_launcher_meli_background.xml" value="0.1" />
         <entry key="app/src/main/res/font/font.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/font/montserrat_light.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_product_details.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_product_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recycler_item_list.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_meli.xml" value="0.1" />

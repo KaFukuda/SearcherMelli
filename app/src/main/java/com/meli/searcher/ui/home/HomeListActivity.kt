@@ -31,7 +31,7 @@ class HomeListActivity : AppCompatActivity() {
 
         rv.adapter = adapter
 
-        homeListViewModel._mList.observe(this) {
+        homeListViewModel.liveDataMList.observe(this) {
             adapter.setItems(it)
         }
 
@@ -45,7 +45,10 @@ class HomeListActivity : AppCompatActivity() {
                     binding.msgEmpty.isGone = true //remove phrase
 
                     when (query.length) {
-                        in 0..3 -> errorMessages.messageErrorOnSnack(binding.root, "Não foi possível retornar a busca. Digite uma palavra maior.")
+                        in 0..3 -> errorMessages.messageErrorOnSnack(
+                            binding.root,
+                            "Não foi possível retornar a busca. Digite uma palavra maior."
+                        )
                         else -> homeListViewModel.searchByWord(query)
                     }
                     return false
@@ -64,15 +67,13 @@ class HomeListActivity : AppCompatActivity() {
         super.onResume()
 
         //verify if list is null and apply method of favorites
-        if (homeListViewModel._mList.value != null)
+        if (homeListViewModel.liveDataMList.value != null)
             homeListViewModel.verifyByIdFavoriteList()
 
         //remove focusable of searchView
         val searchView: SearchView = findViewById(R.id.input_field)
-        searchView.setQuery("", false)
         searchView.queryHint = "Buscar no Mercado Livre";
         binding.root.requestFocus()
-
     }
 
     private fun openItemInProductDetails(itemDetails: ItemDetailsModel) {

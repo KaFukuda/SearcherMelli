@@ -17,17 +17,15 @@ class HomeListViewModel(context: Context
     private val mList = MutableLiveData<List<ItemDetailsModel>>()
     private val favorites = Favorites(context)
 
-    val _mList: LiveData<List<ItemDetailsModel>>
+    val liveDataMList: LiveData<List<ItemDetailsModel>>
     get() {
         return mList
     }
 
     fun searchByWord( word: String ){
         viewModelScope.launch {
-            mList.value = itemListHomeService.searchByWord(word).apply {
-                this.forEach {
-                    it.is_favorite = favorites.getListOfFavorites().contains(it.id)
-                }
+            mList.value = itemListHomeService.searchByWord(word).onEach {
+                it.is_favorite = favorites.getListOfFavorites().contains(it.id)
             }
         }
     }

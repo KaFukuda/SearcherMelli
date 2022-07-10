@@ -7,9 +7,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.products.ProductDetailsActivity">
-
 
         <RelativeLayout
             android:id="@+id/viewBar"
@@ -28,6 +27,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:layout_toStartOf="@+id/iconSearch"
+                android:contentDescription="@string/icon"
                 android:elevation="3dp"
                 android:maxWidth="24dp"
                 android:maxHeight="24dp"
@@ -46,7 +46,9 @@
                 android:layout_marginBottom="-1dp"
                 android:layout_toStartOf="@+id/iconCart"
                 android:clickable="true"
+                android:contentDescription="@string/icon"
                 android:elevation="3dp"
+                android:focusable="true"
                 android:maxWidth="24dp"
                 android:maxHeight="24dp"
                 android:src="@drawable/search_black"
@@ -63,6 +65,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="23dp"
+                android:contentDescription="@string/icon"
                 android:maxWidth="24dp"
                 android:maxHeight="24dp"
                 android:src="@drawable/cart"
@@ -80,10 +83,11 @@
                 android:layout_marginStart="-277dp"
                 android:layout_marginTop="41dp"
                 android:layout_marginEnd="83dp"
+                android:contentDescription="@string/icon"
                 app:srcCompat="@drawable/local" />
 
             <TextView
-                android:id="@+id/adress"
+                android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/iconLocal"
@@ -96,7 +100,7 @@
                 android:layout_toStartOf="@+id/iconCart"
                 android:fontFamily="@font/montserrat_light"
                 android:padding="1dp"
-                android:text="@string/adress"
+                android:text="@string/address"
                 android:textColor="@color/black_text" />
 
             <TextView
@@ -111,7 +115,7 @@
                 android:layout_toStartOf="@+id/iconHeart"
                 android:fontFamily="@font/montserrat_light"
                 android:padding="2dp"
-                android:text="Produto"
+                android:text="@string/title_product"
                 android:textColor="@color/black_text"
                 android:textSize="20sp"
                 android:textStyle="normal" />
@@ -126,6 +130,7 @@
                 android:layout_marginEnd="236dp"
                 android:layout_marginBottom="3dp"
                 android:layout_toStartOf="@+id/iconHeart"
+                android:contentDescription="@string/icon"
                 app:srcCompat="@drawable/menu" />
 
 
@@ -137,6 +142,7 @@
             android:layout_height="305dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +167,7 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="4dp"
                 android:paddingBottom="8dp"
-                android:text="Descrição"
+                android:text="@string/description"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -174,9 +180,9 @@
                 android:paddingTop="4dp"
                 android:paddingEnd="4dp"
                 android:paddingBottom="40dp"
-                android:text="TextView"
                 android:textColor="@color/grey_500"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="TextView" />
 
         </LinearLayout>
 
@@ -206,12 +212,12 @@
             android:paddingTop="16dp"
             android:paddingEnd="8dp"
             android:paddingBottom="16dp"
-            android:text="TextView"
             android:textAlignment="textStart"
             android:textColor="@color/black_text"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewBar" />
+            app:layout_constraintTop_toBottomOf="@+id/viewBar"
+            tools:text="TextView" />
 
         <ImageButton
             android:id="@+id/favIconDetail"
@@ -220,6 +226,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="4dp"
             android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/icon"
             android:paddingBottom="0dp"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="@+id/detailsPrice"

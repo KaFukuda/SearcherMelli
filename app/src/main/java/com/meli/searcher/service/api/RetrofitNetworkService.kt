@@ -35,7 +35,7 @@ class RetrofitNetworkService {
             return getRetrofit
         }
 
-        fun getToken(): String {
+          fun getToken(): String {
             return "Bearer $TOKEN"
         }
     }

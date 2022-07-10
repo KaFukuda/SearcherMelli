@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Searcher</string>
-    <string name="adress">Enviar para Karina Rocha - Travessa César Pedron 123</string>
+    <string name="address">Enviar para Karina Rocha - Travessa César Pedron 123</string>
     <string name="for_sale">Disponível para venda:</string>
+    <string name="description">Descrição</string>
+    <string name="title_product">Produto</string>
+    <string name="icon">Icone</string>
 </resources>
